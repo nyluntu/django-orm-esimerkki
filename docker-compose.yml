@@ -1,0 +1,25 @@
+# https://docs.docker.com/compose/django/
+version: '3'
+# Each service is defined in the file. 
+services:
+  # Postgres is an object relational database system. Will be
+  # the main database for web application.
+  # Read more: https://hub.docker.com/_/postgres
+  db_django:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5432"
+  web_django:
+    image: django-orm-example
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db_django
