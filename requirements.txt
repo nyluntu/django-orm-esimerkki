@@ -1,2 +1,4 @@
 # https://www.djangoproject.com/
 Django==4.0.2
+# https://pypi.org/project/mysqlclient/
+mysqlclient==2.1.0
