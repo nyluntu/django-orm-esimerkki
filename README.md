@@ -1,6 +1,10 @@
 # Django ORM esimerkkiprojekti
 
-Django projekti luotu komennolla: `docker-compose run webdjango django-admin startproject ormesimerkki .`
+Django projekti luotu komennolla. 
+```
+docker-compose run webdjango django-admin startproject ormesimerkki .
+docker-compose run webdjango django-admin startapp sakila
+```
 
 Projektin saa käyntiin seuraavin komennoin.
 
