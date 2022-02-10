@@ -2,17 +2,18 @@
 version: '3'
 # Each service is defined in the file. 
 services:
-  # Postgres is an object relational database system. Will be
+  # Mysql is an object relational database system. Will be
   # the main database for web application.
-  # Read more: https://hub.docker.com/_/postgres
-  db_django:
-    image: postgres
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+  # Read more: https://www.mysql.com/
+  db_mysql:
+    container_name: mysql_django_orm
+    image: mysql:5.7.28
+    volumes:
+      - "./data:/var/lib/mysql"
     ports:
-      - "5433:5432"
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
   web_django:
     image: django-orm-example
     build: .
@@ -22,4 +23,4 @@ services:
     ports:
       - "8001:8000"
     depends_on:
-      - db_django
+      - db_mysql
