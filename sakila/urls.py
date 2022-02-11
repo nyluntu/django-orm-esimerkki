@@ -3,5 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('omasivu', views.index, name='index'),
+    path('laskesumma', views.laske_summa, name='laske_summa'),
 ]
